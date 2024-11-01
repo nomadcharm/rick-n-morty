@@ -23,8 +23,6 @@ export default function Home() {
     return <div>Loading...</div>
   }
 
-  console.log(data)
-
   return (
     <section className={styles.page}>
       <h1>Rick and Morty Characters</h1>
@@ -40,7 +38,7 @@ export default function Home() {
         {
           data?.results.map((character: Character) => {
             return <SwiperSlide key={character.id} className={styles.slide}>
-              <div className={styles.slideContent}>
+              <div className={styles.slideContent} onClick={() => router.push(`/characters/${character.id}`)}>
                 <h2>{character.name}</h2>
                 <p>Status: {character.status}</p>
                 <Image src={character.image} alt={character.name} width={150} height={150} priority />
