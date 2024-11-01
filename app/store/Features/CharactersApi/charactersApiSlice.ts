@@ -1,3 +1,4 @@
+import { ApiResponse } from "@/app/types/ApiResponse";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const charactersApiSlice = createApi({
@@ -6,8 +7,8 @@ export const charactersApiSlice = createApi({
     baseUrl: "https://rickandmortyapi.com/api/character",
   }),
   endpoints: (builder) => ({
-    getCharacters: builder.query({
-      query: ({ page }: {page: number}) => `/?page=${page}`,
+    getCharacters: builder.query<ApiResponse, { page: number }>({
+      query: ({ page }: { page: number }) => `/?page=${page}`,
     })
   })
 });
