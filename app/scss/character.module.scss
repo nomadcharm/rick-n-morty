@@ -1,11 +1,13 @@
-
-
 .character {
+  position: relative;
   padding-top: 100px;
   padding-bottom: 100px;
   min-height: 100svh;
-  background-color: #9ed529;
-  background-color: #f8fbed;
+  background-color: var(--clr-rum-swizzle);
+  background-image: url("/rick-and-morty.png");
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: auto 50%;
   overflow: hidden;
 }
 
@@ -17,8 +19,28 @@
 
 .wrapper {
   display: flex;
-  // justify-content: center;
+  justify-content: center;
   gap: 40px;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+
+  & > svg {
+    position: relative;
+    display: block;
+    width: calc(148% + 1.3px);
+    height: 900px;
+
+    & > path {
+      fill: var(--clr-black);
+    }
+  }
 }
 
 .image {
@@ -27,36 +49,28 @@
   width: 250px;
   height: auto;
   font-size: 0;
-  // box-shadow: 16px 16px 0px 0px #006e79;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: -24px;
-    left: -24px;
-    width: 80%;
-    height: 10px;
-    background-color: #006e79;
-  }
+  box-shadow: 12px 12px 0px 0px var(--clr-pine-green);
 
   &::before {
     content: "";
     position: absolute;
-    top: -24px;
-    left: -24px;
+    top: 0;
+    left: -48px;
     width: 10px;
     height: 1080%;
-    background-color: #006e79;
+    background-color: var(--clr-black);
   }
 }
 
 .info {
   position: relative;
+  font-size: 20px;
+  color: var(--clr-rum-swizzle);
 }
 
 .title {
-  margin-bottom: 10px;
+  margin-bottom: 24px;
   font-size: 42px;
-  text-shadow: 2px 2px #9ed529;
-  color: #006e79;
+  text-shadow: 2px 2px var(--clr-algae-green);
+  color: var(--clr-pine-green);
 }

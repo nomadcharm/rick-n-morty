@@ -23,22 +23,29 @@ const Character = ({ params }: { params: Promise<CharacterParams> }) => {
 
   return (
     <section className={styles.character}>
+
+      <div className={styles.divider}>
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z"></path>
+        </svg>
+      </div>
+
       <div className={styles.container}>
         {character && (
           <div className={styles.wrapper}>
-              <div className={styles.image}>
-                <Image src={character.image} alt={character.name} width={250} height={250} priority />
-              </div>
-              <div className={styles.info}>
-                <h1 className={styles.title}>{character.name}</h1>
-                <p>Status: {character.status}</p>
-                <p>Species: {character.species}</p>
-                {character.type && (<p>Type: {character.type}</p>)}
-                <p>Gender: {character.gender}</p>
-                <p>Planet of Origin: {character.origin.name}</p>
-                <p>Current Location: {character.location.name}</p>
-              </div>
+            <div className={styles.image}>
+              <Image src={character.image} alt={character.name} width={250} height={250} priority />
             </div>
+            <div className={styles.info}>
+              <h1 className={styles.title}>{character.name}</h1>
+              <p>Status: <span>{character.status}</span> </p>
+              <p>Species: {character.species}</p>
+              {character.type && (<p>Type: {character.type}</p>)}
+              <p>Gender: {character.gender}</p>
+              <p>Planet of Origin: {character.origin.name}</p>
+              <p>Current Location: {character.location.name}</p>
+            </div>
+          </div>
         )}
       </div>
     </section>
