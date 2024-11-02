@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  background-color: var(--clr-rum-swizzle);
+}
+
+.loader {
+  --c:no-repeat linear-gradient(var(--clr-pine-green) 0 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: 
+    var(--c),var(--c),var(--c),
+    var(--c),var(--c),var(--c),
+    var(--c),var(--c),var(--c);
+  background-size: 16px 16px;
+  transform: translate(-50%, -50%);
+  animation: 
+    l32-1 1s infinite,
+    l32-2 1s infinite;
+}
+
+@keyframes l32-1 {
+  0%,100% {width:45px;height: 45px}
+  35%,65% {width:65px;height: 65px}
+}
+
+@keyframes l32-2 {
+  0%,40%  {background-position: 0 0,0 50%, 0 100%,50% 100%,100% 100%,100% 50%,100% 0,50% 0,  50% 50% }
+  60%,100%{background-position: 0 50%, 0 100%,50% 100%,100% 100%,100% 50%,100% 0,50% 0,0 0,  50% 50% }
+}

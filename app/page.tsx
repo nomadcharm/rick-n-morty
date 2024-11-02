@@ -1,11 +1,12 @@
 "use client"
 import Image from "next/image";
-import styles from "./scss/page.module.scss";
-import { useGetCharactersQuery } from "./store/Features/CharactersApi/charactersApiSlice";
+import Loader from "./components/Loader";
 import { Character } from "./types/Character";
+import { useGetCharactersQuery } from "./store/Features/CharactersApi/charactersApiSlice";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRouter } from "next/navigation";
 import { Navigation } from 'swiper/modules'
+import styles from "./scss/page.module.scss";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -20,7 +21,7 @@ export default function Home() {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <Loader />
   }
 
   return (

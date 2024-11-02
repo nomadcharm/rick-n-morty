@@ -3,6 +3,7 @@ import { useGetCharacterByIdQuery } from "@/app/store/Features/CharactersApi/cha
 import { use } from "react";
 import styles from "../../scss/character.module.scss";
 import Image from "next/image";
+import Loader from "@/app/components/Loader";
 
 interface CharacterParams {
   character: number;
@@ -18,7 +19,7 @@ const Character = ({ params }: { params: Promise<CharacterParams> }) => {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <Loader />
   }
 
   return (
