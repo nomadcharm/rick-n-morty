@@ -57,7 +57,7 @@ export default function Home() {
           <button
             className={styles.button}
             onClick={() => router.push("/characters")}
-          >More characters</button>
+          >More characters &#8640;</button>
         </div>
       </div>
     </section>
