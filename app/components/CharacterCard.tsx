@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { Character } from "../types/Character";
 import styles from "../scss/characterCard.module.scss";
+import Link from "next/link";
 
 const CharacterCard = ({character} : {character: Character}) => {
-  const router = useRouter();
 
   return (
-    <article className={styles.card} onClick={() => router.push(`/characters/${character.id}`)}>
-      <Image src={character.image} alt={character.name} width={160} height={170} priority />
+    <Link href={`/characters/${character.id}`}>
+    <article className={styles.card}>
+      <Image className={styles.card__img} src={character.image} alt={character.name} width={160} height={170} priority />
       <div className={styles.card__content}>
         <h2 className={styles.card__title}>{character.name}</h2>
         <div className={styles.card__info}>
@@ -17,6 +17,7 @@ const CharacterCard = ({character} : {character: Character}) => {
         </div>
       </div>
     </article>
+    </Link>
   );
 };
 
