@@ -14,6 +14,9 @@ const Characters = () => {
   const { data: characters, isError, isLoading } = useGetCharactersQuery({ page });
   const [charactersList, setCharactersList] = useState<Character[]>([]);
   const loaderRef = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const triggerRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     if (characters) {
@@ -43,6 +46,32 @@ const Characters = () => {
     };
   }, [characters]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(!entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    if (triggerRef.current) {
+      observer.observe(triggerRef.current);
+    }
+
+    return () => {
+      if (triggerRef.current) {
+        observer.unobserve(triggerRef.current);
+      }
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   if (isLoading && page === 1) {
     return <Loader />;
   };
@@ -53,6 +82,17 @@ const Characters = () => {
 
   return (
     <section className={styles.characters}>
+      <div ref={triggerRef} style={{ position: 'absolute', top: '600px' }} />
+      {isVisible && (
+        <button
+          className={styles.characters__top}
+          ref={buttonRef}
+          onClick={scrollToTop}
+        >
+          &#8638;
+        </button>
+      )}
+
       <div className={styles.characters__divider}>
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" />
