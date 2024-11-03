@@ -1,0 +1,34 @@
+.page {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  background-color: var(--clr-rum-swizzle);
+  background-image: url("/bg-main.png");
+  background-position: bottom 20px center;
+  background-repeat: no-repeat;
+  background-size: 60svh;
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  & > h1 {
+    font-size: 140px;
+    font-weight: 700;
+    text-shadow: 3px 3px var(--clr-algae-green);
+    color: var(--clr-pine-green);
+  }
+
+  & > p {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--clr-algae-green);
+    color: #666;
+  }
+}

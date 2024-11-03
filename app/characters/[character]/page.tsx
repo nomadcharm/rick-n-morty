@@ -4,6 +4,7 @@ import { use } from "react";
 import styles from "../../scss/character.module.scss";
 import Image from "next/image";
 import Loader from "@/app/components/Loader";
+import NotFound from "@/app/not-found";
 
 interface CharacterParams {
   character: number;
@@ -15,7 +16,7 @@ const Character = ({ params }: { params: Promise<CharacterParams> }) => {
   const { data: character, isError, isLoading } = useGetCharacterByIdQuery({ id: unwrappedParams.character });
 
   if (isError) {
-    return <div>Error...</div>
+    return <NotFound />
   }
 
   if (isLoading) {
