@@ -1,0 +1,37 @@
+.card {
+  display: flex;
+  height: 170px;
+  background: var(--clr-algae-green);
+  cursor: pointer;
+
+  &__content {
+    padding: 12px 14px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__info {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+
+  &__detail {
+    color: #444;
+    
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+    
+    &>span {
+      display: block;
+      font-weight: 700;
+      color: #000;
+    }
+  }
+}
