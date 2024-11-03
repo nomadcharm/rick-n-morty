@@ -4,8 +4,19 @@
   background: var(--clr-algae-green);
   cursor: pointer;
 
+  @media (max-width: 576px) {
+    height: 150px;
+  }
+
   &__content {
     padding: 12px 14px;
+  }
+
+  &__img {
+    @media (max-width: 576px) {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   &__title {
@@ -19,6 +30,10 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
     overflow: hidden;
+
+    @media (max-width: 576px) {
+      -webkit-line-clamp: 3;
+    }
   }
 
   &__detail {
