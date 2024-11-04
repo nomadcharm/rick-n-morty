@@ -1,10 +1,11 @@
 import { getAllCharacterIds } from "@/app/store/Features/CharactersApi/charactersApiSlice";
 import CharacterClient from "./CharacterClient";
 
-type Props = {
-  params: {
-    character: string;
-  };
+const CharacterPage = async ({ params }: { params: Promise<{ character: string }> }) => {
+  const resolvedParams = await params;
+  const characterId = Number(resolvedParams.character);
+
+  return <CharacterClient characterId={characterId} />;
 };
 
 export const generateStaticParams = async () => {
@@ -14,9 +15,4 @@ export const generateStaticParams = async () => {
     character: id.toString(),
   }));
 };
-
-const CharacterPage = async ({ params: { character } }: Props) => {
-  return <CharacterClient characterId={Number(character)} />;
-};
-
 export default CharacterPage;

@@ -21,7 +21,7 @@ export const charactersApiSlice = createApi({
 
 export const { useGetCharactersQuery, useGetCharacterByIdQuery } = charactersApiSlice;
 
-export const getAllCharacterIds = async () => {
+export const getAllCharacterIds = async (): Promise<number[]> => {
   const allCharacterIds = [];
   const totalPages = 42;
 
