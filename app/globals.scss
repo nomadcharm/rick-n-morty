@@ -68,3 +68,20 @@ button {
     padding: 0 15px;
   }
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background:var(--clr-algae-green);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-pine-green);
+  transition: background 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1c7780;;
+}

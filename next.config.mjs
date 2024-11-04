@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  basePath: "/rick-n-morty",
   images: {
-    domains: ["rickandmortyapi.com"]
+    domains: ["rickandmortyapi.com"],
+    unoptimized: true,
   }
 };
 
