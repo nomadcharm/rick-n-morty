@@ -14,6 +14,11 @@
     background-image: none;
   }
 
+  @media (max-width: 576px) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
   &__divider {
     position: absolute;
     top: 0;
@@ -38,8 +43,20 @@
     }
   }
 
+  &__back {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--clr-pine-green);
+    transition: text-shadow 0.3s ease-in-out;
+
+    &:hover {
+      text-shadow: 1px 1px var(--clr-algae-green);
+    }
+  }
+
   &__wrapper {
     display: flex;
+    align-items: flex-start;
     justify-content: center;
     gap: 40px;
   }
@@ -59,7 +76,7 @@
     &::before {
       content: "";
       position: absolute;
-      top: 0;
+      top: 48px;
       left: -48px;
       width: 10px;
       height: 1080%;
@@ -92,6 +109,8 @@
   }
 
   &__info {
+    margin-bottom: 10px;
+
     & > p {
       font-weight: 500;
       color: #888;

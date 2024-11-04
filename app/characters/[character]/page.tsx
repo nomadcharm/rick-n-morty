@@ -5,12 +5,14 @@ import Image from "next/image";
 import Loader from "@/app/components/Loader";
 import NotFound from "@/app/not-found";
 import styles from "../../scss/character.module.scss";
+import { useRouter } from "next/navigation";
 
 interface CharacterParams {
   character: number;
 }
 
 const Character = ({ params }: { params: Promise<CharacterParams> }) => {
+  const router = useRouter();
   const unwrappedParams = use(params);
 
   const { data: character, isError, isLoading } = useGetCharacterByIdQuery({ id: unwrappedParams.character });
@@ -48,6 +50,7 @@ const Character = ({ params }: { params: Promise<CharacterParams> }) => {
                 <p>Planet of Origin: <span>{character.origin.name}</span></p>
                 <p>Current Location: <span>{character.location.name}</span></p>
               </div>
+              <button className={styles.character__back} onClick={() => router.back()}>&#8636; Back</button>
             </div>
           </div>
         )}
