@@ -99,7 +99,7 @@ const Characters = () => {
         </svg>
       </div>
       <div className="container">
-        <button className={styles.characters__back} onClick={() => router.back()}>&#8636; Back</button>
+        <button className={styles.characters__back} onClick={() => router.push("/")}>&#8636; Back</button>
         <h1 className={styles.characters__title}>All Rick and Morty Characters</h1>
         <ul className={styles.characters__list}>
           {
