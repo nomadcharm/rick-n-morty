@@ -1,4 +1,4 @@
-import { getAllCharacterIds } from "@/app/store/Features/CharactersApi/charactersApiSlice";
+import { getAllCharacterIds } from "@/app/store/Features/CharactersApi/getAllCharacters";
 import CharacterClient from "./CharacterClient";
 
 const CharacterPage = async ({ params }: { params: Promise<{ character: string }> }) => {

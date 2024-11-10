@@ -1,4 +1,3 @@
-import { Character } from "./Character";
 
 export interface Info {
   count: number;
@@ -7,7 +6,7 @@ export interface Info {
   prev: string | null;
 }
 
-export interface ApiResponse {
+export interface ApiResponse<T> {
   info: Info;
-  results: Character[];
+  results: T[];
 }
